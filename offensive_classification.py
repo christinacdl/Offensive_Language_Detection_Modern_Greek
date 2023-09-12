@@ -511,12 +511,21 @@ for threshold_value in thresholds:
   test_set.to_json(args['new_data_directory'] + f'{threshold_value}_test.json', force_ascii=False, orient='records', lines=True)
 
   # Get value counts for each set
-  train_value_counts = training_set['label'].value_counts().to_frame('train_counts')
-  test_value_counts = test_set['label'].value_counts().to_frame('test_counts')
-  val_value_counts = val_set['label'].value_counts().to_frame('val_counts') 
+  train_value_counts = training_set['label'].value_counts() 
+  test_value_counts = test_set['label'].value_counts() 
+  val_value_counts = val_set['label'].value_counts()
 
-  # Concatenate value counts into a single DataFrame
-  value_counts_df = pd.concat([train_value_counts, test_value_counts, val_value_counts], axis=1)
+  # Get the count of a specific class
+  class_count_train_0 = train_value_counts[0]
+  class_count_train_1 = train_value_counts[1]
+  class_count_test_0 = test_value_counts[0]
+  class_count_test_1 = test_value_counts[1]
+  class_count_val_0 = val_value_counts[0]
+  class_count_val_1 = val_value_counts[1]
+    
+  value_counts_df = pd.DataFrame({'train_counts':[class_count_train_0, class_count_train_1],
+                                  'test_counts': [class_count_test_0, class_count_test_1],
+                                  'val_counts':[class_count_val_0, class_count_val_1]})
 
   # Save value counts to file
   value_counts_df.to_csv(args['new_data_directory'] + f'{threshold_value}_value_counts.csv', encoding = 'utf-8', index = False, header = True, sep =',')
