@@ -52,8 +52,6 @@ metrics_2 = pd.read_csv('/home/geoten/Projects/christodoulou/predictions/thresho
 metrics_3 = pd.read_csv('/home/geoten/Projects/christodoulou/predictions/threshold_run_7/All_Metrics_mDEBERTa.tsv', sep ='\t')
 metrics_4 = pd.read_csv('/home/geoten/Projects/christodoulou/predictions/threshold_run_9/All_Metrics_GREEK_BERT.csv', sep =',')
 metrics_5 = pd.read_csv('/home/geoten/Projects/christodoulou/predictions/threshold_run_10/All_Metrics_XLM_ROBERTA.csv', sep =',')
-metrics_6 = pd.read_csv('/home/geoten/Projects/christodoulou/predictions/threshold_run_5/All_Metrics_ETHICAL_EYE.tsv', sep ='\t')
-
 
 # Plot the metrics to compare 
 plt.plot(metrics_1['Threshold'], metrics_1['Macro_F1'], label='BERT-Multilingual-Base-Uncased',
