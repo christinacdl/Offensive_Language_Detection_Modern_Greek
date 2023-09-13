@@ -1,0 +1,13 @@
+pandas
+matplotlib
+sklearn
+numpy
+wordsegment
+torchvision
+seaborn 
+torchtext
+transformers
+torch lightning 
+emoji 
+unidecode 
+datasets
