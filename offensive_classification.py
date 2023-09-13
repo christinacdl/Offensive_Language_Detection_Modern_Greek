@@ -1,8 +1,4 @@
 # -*- coding: utf-8 -*-
-
-
-#!pip install torchvision seaborn torchtext wordsegment transformers contractions torch lightning emoji unidecode ekphrasis -U SentencePiece focal_loss_torch pytorch_metric_learning flair
-
 # Import necessary libraries
 import os
 
