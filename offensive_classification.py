@@ -15,60 +15,26 @@ for i in range(torch.cuda.device_count()):
     print(f"CUDA:{i} {info.name}, {info.total_memory / 1024 ** 2}MB")
 device = torch.device("cuda:0")
 
-
 from torchtext import data, datasets
 import random
 import re
 import glob
-import spacy
-import string
-import time
 import emoji
 import pandas as pd
 import seaborn as sns
-import math
 import numpy as np
-import nltk
-from tqdm import tqdm, trange
-import datetime
-import torch.nn as nn
-from lightning import Fabric
-import torch.optim as optim
-import collections
-from sklearn.utils import resample
-from sklearn import metrics
 from sklearn.metrics import precision_recall_fscore_support as score
 from sklearn.metrics import accuracy_score, f1_score, precision_score, recall_score,  matthews_corrcoef
-from sklearn.metrics import classification_report
-from functools import reduce
-from unidecode import unidecode
-from collections import OrderedDict
-from unidecode import unidecode
 from sklearn.model_selection import train_test_split
-from nltk.tokenize import TweetTokenizer
 from sklearn.metrics import precision_recall_fscore_support as score
 from sklearn.metrics import classification_report, confusion_matrix, accuracy_score, roc_curve, auc
 from torch.utils.data import Dataset, DataLoader, SequentialSampler, RandomSampler
-from transformers import AdamW, BertForSequenceClassification, AlbertForSequenceClassification, RobertaForSequenceClassification, DebertaForSequenceClassification,XLMRobertaXLConfig, XLMRobertaXLForSequenceClassification, AutoModelForSequenceClassification, AutoConfig, AutoModel, get_linear_schedule_with_warmup, BertTokenizer, DebertaV2ForSequenceClassification, BertModel,BertConfig,DebertaV2Config, DebertaV2Model,  AlbertConfig, AlbertModel, AlbertTokenizer, RobertaModel, RobertaTokenizer, RobertaConfig, DebertaConfig, DebertaModel, DebertaTokenizer, AutoTokenizer, DebertaV2Tokenizer
+from transformers import BertForSequenceClassification, AlbertForSequenceClassification, RobertaForSequenceClassification, DebertaForSequenceClassification,XLMRobertaXLConfig, XLMRobertaXLForSequenceClassification, AutoModelForSequenceClassification, AutoConfig, AutoModel, get_linear_schedule_with_warmup, BertTokenizer, DebertaV2ForSequenceClassification, BertModel,BertConfig,DebertaV2Config, DebertaV2Model,  AlbertConfig, AlbertModel, AlbertTokenizer, RobertaModel, RobertaTokenizer, RobertaConfig, DebertaConfig, DebertaModel, DebertaTokenizer, AutoTokenizer, DebertaV2Tokenizer
 import matplotlib.pyplot as plt
-from ekphrasis.classes.preprocessor import TextPreProcessor
-from ekphrasis.classes.tokenizer import SocialTokenizer
-from focal_loss.focal_loss import FocalLoss
-from sklearn.utils.class_weight import compute_class_weight
-from sklearn.model_selection import StratifiedKFold
-import torchvision
-from typing import Callable
-from collections import Counter
 import wordsegment as ws
-from pytorch_metric_learning import losses
-import contractions
 from datasets import load_dataset
-from huggingface_hub import HfFolder
 from transformers import TrainingArguments, Trainer
 from transformers import EarlyStoppingCallback
-from huggingface_hub import login
-import torchmetrics
-
 
 """**THE LABELS**"""
 
