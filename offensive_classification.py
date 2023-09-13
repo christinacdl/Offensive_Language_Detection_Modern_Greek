@@ -315,8 +315,8 @@ dict_BERT_model_names = {1: 'bert-base-uncased',
                          2: 'bert-large-uncased',
                          3: 'bert-base-multilingual-uncased', #multilingual YES
                          4: 'bert-base-multilingual-cased',
-                         5: 'dimitriz/greek-media-bert-base-uncased', #multilingual YES threshold_run_6
-                         6: 'nlpaueb/bert-base-greek-uncased-v1'}   #multilingual YES threshold_run_9
+                         5: 'dimitriz/greek-media-bert-base-uncased', #multilingual YES 
+                         6: 'nlpaueb/bert-base-greek-uncased-v1'}   #multilingual YES 
 
 dict_AlBERT_model_names = {1: 'albert-base-v1',
                            2: 'albert-base-v2',
@@ -345,12 +345,12 @@ dict_multilingual_model_names = {1: 'studio-ousia/mluke-base', #multilingual
 
 
 args = {'task_name': 'Offensive Language Detection in Greek Corpus',
-        'data_directory': '/home/geoten/Projects/christodoulou/train_test_files/',
-        'new_data_directory':  '/home/geoten/Projects/christodoulou/train_test_files/prepared_files/threshold_run_10/',            
-        'results_data_directory': '/home/geoten/Projects/christodoulou/predictions/threshold_run_10/',             
-        'output_model_directory': '/home/geoten/Projects/christodoulou/GREEK_OFFENSIVE_DETECTION/',
-        'model_type':  'XLM_RoBERTa',   # Write the model's name 
-        'model_name': str(dict_XLM_RoBERTa_model_names[1]),   # Change the index to train with the model of your choice
+        'data_directory': '/train_test_files/',
+        'new_data_directory':  '/train_test_files/prepared_files/threshold_run_1/',            
+        'results_data_directory': '/predictions/threshold_run_1/',             
+        'output_model_directory': '/GREEK_OFFENSIVE_DETECTION/',
+        'model_type':  'BERT',   # Write the model's name 
+        'model_name': str(dict_BERT_model_names[5]),   # Change the index to train with the model of your choice
         'cache_dir': 'cache/', 
         'num_classes': 2,   # Binary classification 
         'max_seq_length': 512,
@@ -359,7 +359,7 @@ args = {'task_name': 'Offensive Language Detection in Greek Corpus',
         'validation_batch_size': 16,
         'num_train_epochs': 5, 
         'warmup_steps': 0, 
-        'max_grad_norm' : 1.0,
+        'max_grad_norm': 1.0,
         'weight_decay':  0.01,   
         'learning_rate': 2e-5,   
         'adam_epsilon': 1e-8,    
@@ -372,7 +372,7 @@ print('================',str(args['task_name']),'================\n')
 # Get the directory names and the specific model used
 print('Output directory: ' + str(args['output_model_directory']))
 print('Model Name: ' + str(args['model_name']))
-args['output_specific_model_dir'] = args['output_model_directory'] + args['model_name'] + '/' + 'threshold_run_10'
+args['output_specific_model_dir'] = args['output_model_directory'] + args['model_name'] + '/' + 'threshold_run_1'
 print('Output Directory: ' + str(args['output_specific_model_dir']))
 
 # Check whether the directories exist else create them
