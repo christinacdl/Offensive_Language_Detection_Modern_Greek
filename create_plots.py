@@ -17,7 +17,7 @@ test_counts_label_0 = []
 
 # Read each CSV file and extract counts
 for threshold in thresholds:
-    filename = f'train_test_files/prepared_files/threshold_run_11/{threshold}_value_counts.csv'
+    filename = f'train_test_files/prepared_files/threshold_run_1/{threshold}_value_counts.csv'
     df = pd.read_csv(filename, sep=',')
     train_counts_label_1.append(df.loc[1,'train_counts'])
     val_counts_label_1.append(df.loc[1,'val_counts'])
@@ -40,19 +40,19 @@ df_bar_plot.plot(kind='bar', figsize=(12,6), color=['#A2142F', '#EDB120', '#D953
 plt.title('Class Distribution based on Thresholds')
 plt.ylabel('Counts')
 plt.xlabel('Threshold')
-plt.savefig('/home/geoten/Projects/christodoulou/metrics/Class_distribution', bbox_inches='tight')
+plt.savefig('/metrics/Class_distribution', bbox_inches='tight')
 plt.show()
 plt.close()
 
 
 # MACRO-F1 SCORE MODEL COMPARISON PLOT
 # Open and read the metrics report 
-metrics_1 = pd.read_csv('/home/geoten/Projects/christodoulou/predictions/threshold_run_4/All_Metrics_BERTMULTI.tsv', sep ='\t')
-metrics_2 = pd.read_csv('/home/geoten/Projects/christodoulou/predictions/threshold_run_6/All_Metrics_GREEK_MEDIA_BERT.tsv', sep ='\t')
-metrics_3 = pd.read_csv('/home/geoten/Projects/christodoulou/predictions/threshold_run_7/All_Metrics_mDEBERTa.tsv', sep ='\t')
-metrics_4 = pd.read_csv('/home/geoten/Projects/christodoulou/predictions/threshold_run_9/All_Metrics_GREEK_BERT.csv', sep =',')
-metrics_5 = pd.read_csv('/home/geoten/Projects/christodoulou/predictions/threshold_run_10/All_Metrics_XLM_ROBERTA.csv', sep =',')
-metrics_6 = pd.read_csv('/home/geoten/Projects/christodoulou/predictions/threshold_run_5/All_Metrics_ETHICAL_EYE.tsv', sep ='\t')
+metrics_1 = pd.read_csv('/predictions/threshold_run_4/All_Metrics_BERTMULTI.tsv', sep ='\t')
+metrics_2 = pd.read_csv('/predictions/threshold_run_6/All_Metrics_GREEK_MEDIA_BERT.tsv', sep ='\t')
+metrics_3 = pd.read_csv('/predictions/threshold_run_7/All_Metrics_mDEBERTa.tsv', sep ='\t')
+metrics_4 = pd.read_csv('/predictions/threshold_run_9/All_Metrics_GREEK_BERT.csv', sep =',')
+metrics_5 = pd.read_csv('/predictions/threshold_run_10/All_Metrics_XLM_ROBERTA.csv', sep =',')
+metrics_6 = pd.read_csv('/predictions/threshold_run_5/All_Metrics_ETHICAL_EYE.tsv', sep ='\t')
 
 
 # Plot the metrics to compare 
@@ -76,6 +76,6 @@ plt.legend()
 plt.grid()
 plt.ylabel('Macro-F1 Score')
 plt.title('Model Macro-F1 Scores Based on Thresholds')
-plt.savefig('/home/geoten/Projects/christodoulou/metrics/Model_Comparison_Thresholds', bbox_inches='tight')
+plt.savefig('/metrics/Model_Comparison_Thresholds', bbox_inches='tight')
 plt.show()
 plt.close()
